@@ -1,0 +1,32 @@
+{
+  "author": "Haderech Pte. Ltd.",
+  "bugs": "https://github.com/noir-protocol/noir-js/issues",
+  "engines": {
+    "node": ">=14"
+  },
+  "homepage": "https://github.com/noir-protocol/noir-js#readme",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noir-protocol/noir-js.git"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "polkadot-dev-build-ts",
+    "clean": "polkadot-dev-clean-build",
+    "lint": "polkadot-dev-run-lint",
+    "test": "polkadot-dev-run-test --env node"
+  },
+  "devDependencies": {
+    "@polkadot/dev": "^0.71.1",
+    "@types/node": "^18.15.0"
+  },
+  "resolutions": {
+    "typescript": "^4.9.5"
+  }
+}
