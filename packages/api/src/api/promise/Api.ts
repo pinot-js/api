@@ -37,7 +37,7 @@ export class ApiPromise extends ApiPromiseBase {
         }
       },
       WebAuthnSignature: {
-        clientDataJson: 'Binary',
+        clientDataJSON: 'Binary',
         authenticatorData: 'Binary',
         signature: 'Binary'
       }

@@ -7,3 +7,4 @@ export * as types from './types/index.js';
 export * as util from './util/index.js';
 
 export { Keyring } from './keyring/index.js';
+export { WebAuthnSigner } from './signer/index.js';
