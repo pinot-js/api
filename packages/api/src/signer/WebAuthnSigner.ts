@@ -11,25 +11,23 @@ let id = 0;
 export class WebAuthnSigner implements Signer {
   readonly #registry: Registry;
   readonly #credentialId: Uint8Array;
-  readonly address?: string;
-  readonly addressRaw?: Uint8Array;
+  readonly address: string;
+  readonly addressRaw: Uint8Array;
 
-  constructor (registry: Registry, credentialId: Uint8Array | string, publicKey?: Uint8Array | string) {
+  constructor (registry: Registry, credentialId: Uint8Array | string, publicKey: Uint8Array | string) {
     this.#registry = registry;
     this.#credentialId = isU8a(credentialId) ? credentialId : stringToU8a(credentialId);
 
-    if (publicKey) {
-      let raw: Uint8Array = isU8a(publicKey) ? publicKey : stringToU8a(publicKey);
+    let raw: Uint8Array = isU8a(publicKey) ? publicKey : stringToU8a(publicKey);
 
-      if (raw.length === 64) {
-        raw = compactAddLength(u8aConcat(new Uint8Array([0x02 + (raw[63] & 0x01)]), raw.slice(0, 32)));
-      }
-
-      const accountId = this.#registry.createType('AccountId', u8aConcat(new Uint8Array([0x80, 0x24]), raw));
-
-      this.address = accountId.toHuman()?.toString();
-      this.addressRaw = accountId.toU8a();
+    if (raw.length === 64 || (raw.length === 65 && raw[0] === 0x04)) {
+      raw = u8aConcat(new Uint8Array([0x02 + (raw[raw.length - 1] & 0x01)]), raw.slice(raw.length - 64, raw.length - 32));
     }
+
+    const accountId = this.#registry.createType('AccountId', compactAddLength(u8aConcat(new Uint8Array([0x80, 0x24]), raw)));
+
+    this.address = accountId.toHuman() as string;
+    this.addressRaw = accountId.toU8a();
   }
 
   public async signRaw ({ address, data }: SignerPayloadRaw): Promise<SignerResult> {
@@ -53,7 +51,7 @@ export class WebAuthnSigner implements Signer {
 
     return {
       id: ++id,
-      signature: this.#registry.createType('UniversalSignature', {
+      signature: this.#registry.createType('ExtrinsicSignature', {
         /* eslint-disable sort-keys */
         WebAuthn: {
           clientDataJSON: compactAddLength(new Uint8Array(response.clientDataJSON)),
@@ -63,5 +61,9 @@ export class WebAuthnSigner implements Signer {
         /* eslint-enable sort-keys */
       }).toHex()
     };
+  }
+
+  public toString (): string {
+    return this.address;
   }
 }
