@@ -34,5 +34,11 @@ describe('UniversalAddress', (): void => {
 
       expect(ua.toHuman()).toEqual(b);
     });
+
+    it('can convert to raw binary without the length', (): void => {
+      const ua = registry.createType<UniversalAddress>('UniversalAddress', b);
+
+      expect(ua.toU8a(true)).toEqual(hexToU8a('e701023af1e1efa4d1e1ad5cb9e3967e98e901dafcd37c44cf0bfb6c216997f5ee51df'));
+    });
   });
 });
