@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: Apache-2.0
 
 import { AnyU8a, Registry } from '@polkadot/types-codec/types';
-import { compactFromU8aLim, isHex, isString } from '@polkadot/util';
+import { isHex, isString } from '@polkadot/util';
 
 import { u8aToBase64url } from '../util/index.js';
 import { Binary } from './Binary.js';
@@ -16,7 +16,7 @@ const MULTICODEC = {
 };
 /* eslint-enable sort-keys */
 
-function startsWith (v: Uint8Array, w: Uint8Array): boolean {
+function u8aStartsWith (v: Uint8Array, w: Uint8Array): boolean {
   if (v.length < w.length) {
     return false;
   }
@@ -31,14 +31,12 @@ function startsWith (v: Uint8Array, w: Uint8Array): boolean {
 }
 
 export class UniversalAddress extends Binary {
-  protected static override validate (a: Uint8Array): Uint8Array {
-    const [offset] = compactFromU8aLim(a);
+  static validate (u8a: Uint8Array): Uint8Array {
+    let alg: keyof typeof MULTICODEC;
 
-    let k: keyof typeof MULTICODEC;
-
-    for (k in MULTICODEC) {
-      if (startsWith(a.slice(offset), MULTICODEC[k])) {
-        return a;
+    for (alg in MULTICODEC) {
+      if (u8aStartsWith(u8a, MULTICODEC[alg])) {
+        return u8a;
       }
     }
 
@@ -55,6 +53,7 @@ export class UniversalAddress extends Binary {
     } else {
       super(registry, value);
     }
+    UniversalAddress.validate(this);
   }
 
   public override toHuman (): string {

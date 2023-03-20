@@ -23,12 +23,8 @@ export function decodeBinary (value?: AnyU8a | AnyString): Uint8Array {
 }
 
 export class Binary extends Bytes {
-  protected static validate (a: Uint8Array): Uint8Array {
-    return a;
-  }
-
   constructor (registry: Registry, value?: AnyU8a) {
-    super(registry, Binary.validate(decodeBinary(value)));
+    super(registry, decodeBinary(value));
   }
 
   public override toHuman (): string {
