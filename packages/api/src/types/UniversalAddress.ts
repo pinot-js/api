@@ -32,6 +32,10 @@ function u8aStartsWith (v: Uint8Array, w: Uint8Array): boolean {
 
 export class UniversalAddress extends Binary {
   static validate (u8a: Uint8Array): Uint8Array {
+    if (u8a.length === 0) {
+      return u8a;
+    }
+
     let alg: keyof typeof MULTICODEC;
 
     for (alg in MULTICODEC) {
@@ -53,6 +57,7 @@ export class UniversalAddress extends Binary {
     } else {
       super(registry, value);
     }
+
     UniversalAddress.validate(this);
   }
 
