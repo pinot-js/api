@@ -62,6 +62,10 @@ export class UniversalAddress extends Binary {
   }
 
   public override toHuman (): string {
+    return this.toString();
+  }
+
+  public override toString (): string {
     return 'u' + u8aToBase64url(this.toU8a(true));
   }
 
