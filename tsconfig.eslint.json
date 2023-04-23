@@ -1,15 +1,8 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./packages",
-    "composite": false
+    "noEmit": true,
+    "allowJs": true
   },
-  "include": [
-    "packages/**/src/**/*",
-    "packages/**/scripts/**/*",
-    "packages/**/test/**/*"
-  ],
-  "exclude": [
-    "**/node_modules/**/*"
-  ]
+  "include": [".eslintrc.cjs"]
 }

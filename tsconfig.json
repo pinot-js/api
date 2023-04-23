@@ -1,13 +1,14 @@
 {
-  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "baseUrl": "./packages",
-    "composite": false
+    "module": "CommonJS",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "rootDir": "./src",
+    "outDir": "./dist"
   },
-  "include": [
-    "packages/**/src/**/*"
-  ],
-  "exclude": [
-    "**/node_modules/**/*"
-  ]
+  "include": ["src"]
 }

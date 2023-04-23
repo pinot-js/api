@@ -143,7 +143,6 @@ export function createPair ({ toSS58, type }: Setup, { publicKey, secretKey }: P
     },
     // eslint-disable-next-line sort-keys
     decodePkcs8,
-    decryptMessage: (_0, _1) => new Uint8Array(),
     derive: (suri: string, meta?: KeyringPair$Meta): KeyringPair => {
       if (type === 'ethereum') {
         throw new Error('Unable to derive on this keypair');
@@ -159,7 +158,6 @@ export function createPair ({ toSS58, type }: Setup, { publicKey, secretKey }: P
     encodePkcs8: (passphrase?: string): Uint8Array => {
       return recode(passphrase);
     },
-    encryptMessage: (_0, _1, _2) => new Uint8Array(),
     lock: (): void => {
       secretKey = new Uint8Array();
     },
