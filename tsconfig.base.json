@@ -1,11 +1,11 @@
 {
-  "extends": "@polkadot/dev/config/tsconfig.json",
   "compilerOptions": {
-    "composite": true,
-    "paths": {
-      "@noir/api" : ["api/src/index.ts"],
-      "@noir/api/*" : ["api/src/*/index.js"]
-    },
-    "skipLibCheck": true
+    "module": "CommonJS",
+    "moduleResolution": "nodenext",
+    "target": "es2022",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
   }
 }

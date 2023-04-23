@@ -1,32 +1,50 @@
 {
-  "author": "Haderech Pte. Ltd.",
-  "bugs": "https://github.com/noir-protocol/noir-js/issues",
-  "engines": {
-    "node": ">=14"
-  },
-  "homepage": "https://github.com/noir-protocol/noir-js#readme",
-  "license": "Apache-2.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/noir-protocol/noir-js.git"
-  },
-  "sideEffects": false,
-  "type": "module",
+  "name": "@noir/api",
   "version": "0.1.0",
-  "workspaces": [
-    "packages/*"
-  ],
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "yarn@3.5.0",
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "main": "./src/index.ts",
+  "publishConfig": {
+    "access": "public",
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "require": "./dist/index.cjs",
+        "import": "./dist/index.js"
+      },
+      "./package.json": "./package.json"
+    },
+    "main": "./dist/index.js"
+  },
   "scripts": {
-    "build": "polkadot-dev-build-ts",
-    "clean": "polkadot-dev-clean-build",
-    "lint": "polkadot-dev-run-lint",
-    "test": "polkadot-dev-run-test --env node"
+    "build": "rm -rf dist && tsup ./src/index.ts --format cjs,esm --dts",
+    "dev": "yarn run build --watch",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "prepack": "yarn build",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
-    "@polkadot/dev": "^0.71.1",
-    "@types/node": "^18.15.0"
-  },
-  "resolutions": {
+    "@polkadot/api-derive": "^10.4.1",
+    "@polkadot/dev": "^0.72.42",
+    "@polkadot/keyring": "^12.0.1",
+    "@polkadot/types": "^10.4.1",
+    "@polkadot/types-codec": "^10.4.1",
+    "@polkadot/util": "^12.0.1",
+    "@polkadot/util-crypto": "^12.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "rxjs": "^7.8.0",
+    "tsup": "^6.5.0",
     "typescript": "^4.9.5"
+  },
+  "dependencies": {
+    "@polkadot/api": "^10.4.1"
   }
 }
