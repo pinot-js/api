@@ -5,7 +5,7 @@ module.exports = {
   parserOptions: {
     allowAutomaticSingleRunInference: true,
     tsconfigRootDir: __dirname,
-    project: ['./tsconfig.eslint.json', './packages/*/tsconfig.json'],
+    project: ['./tsconfig.eslint.json', './tsconfig.json'],
   },
   plugins: ['@typescript-eslint'],
   extends: [
@@ -19,6 +19,8 @@ module.exports = {
       files: ['.eslintrc.cjs'],
       rules: {
         '@typescript-eslint/no-unsafe-assignment': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
       },
     },
   ],

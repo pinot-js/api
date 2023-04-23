@@ -7,3 +7,4 @@ coverage
 __snapshots__
 .docusaurus
 build
+src/**/*.spec.ts
