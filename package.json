@@ -26,7 +26,8 @@
     "dev": "yarn run build --watch",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
     "prepack": "yarn build",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@polkadot/dev": "^0.72.42",
@@ -35,7 +36,8 @@
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
     "tsup": "^6.5.0",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vitest": "^0.31.0"
   },
   "dependencies": {
     "@polkadot/api": "^10.4.1",
