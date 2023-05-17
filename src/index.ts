@@ -1,10 +1,6 @@
 // Copyright (C) 2023 Haderech Pte. Ltd.
 // SPDX-License-Identifier: Apache-2.0
 
-export * from './api/index.js';
-export * as keyring from './keyring/index.js';
-export * as types from './types/index.js';
-export * as util from './util/index.js';
+export { ApiPromise } from './promise/Api.js';
 
-export { Keyring } from './keyring/index.js';
-export { WebAuthnSigner } from './signer/index.js';
+export * from '@polkadot/api';

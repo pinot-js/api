@@ -5,7 +5,7 @@ import type { ApiOptions } from '@polkadot/api/types';
 
 import { ApiPromise as ApiPromiseBase } from '@polkadot/api';
 
-import { AccountName, Binary, MultiAddress, UniversalAddress } from '../../types/index.js';
+import { AccountName, Binary, MultiAddress, UniversalAddress } from '@noir/types';
 import * as derives from '../derive/index.js';
 
 export class ApiPromise extends ApiPromiseBase {
