@@ -1,9 +1,7 @@
 // Copyright (C) 2023 Haderech Pte. Ltd.
 // SPDX-License-Identifier: Apache-2.0
 
-/// <reference types="@polkadot/dev/node/test/node" />
-
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+import { describe, expect, it } from 'vitest';
 
 import { TypeRegistry } from '@polkadot/types';
 
