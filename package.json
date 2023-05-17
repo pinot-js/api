@@ -39,13 +39,10 @@
     "vitest": "^0.31.0"
   },
   "dependencies": {
+    "@noir/types": "github:noir-js/types",
+    "@noir/util": "github:noir-js/util",
     "@polkadot/api": "^10.4.1",
     "@polkadot/api-derive": "^10.4.1",
-    "@polkadot/keyring": "^12.0.1",
-    "@polkadot/types": "^10.4.1",
-    "@polkadot/types-codec": "^10.4.1",
-    "@polkadot/util": "^12.0.1",
-    "@polkadot/util-crypto": "^12.0.1",
     "rxjs": "^7.8.0"
   }
 }
