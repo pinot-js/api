@@ -3,4 +3,6 @@
 
 export { ApiPromise } from './promise/Api.js';
 
+export { Keyring } from '@noir/keyring';
+
 export * from '@polkadot/api';
