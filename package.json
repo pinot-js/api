@@ -1,31 +1,34 @@
 {
-  "name": "@noir/api",
+  "name": "@pinot/api",
   "version": "0.1.0",
   "license": "Apache-2.0",
   "type": "module",
-  "packageManager": "yarn@3.5.0",
+  "description": "RPC wrappers for @pinot",
+  "author": "Haderech Pte. Ltd.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinot-js/api.git"
+  },
+  "files": [
+    "cjs",
+    "dist"
+  ],
   "exports": {
-    ".": "./src/index.ts",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./cjs/index.js",
+      "import": "./dist/index.js"
+    },
     "./package.json": "./package.json"
   },
-  "main": "./src/index.ts",
-  "publishConfig": {
-    "access": "public",
-    "exports": {
-      ".": {
-        "types": "./dist/index.d.ts",
-        "require": "./dist/index.cjs",
-        "import": "./dist/index.js"
-      },
-      "./package.json": "./package.json"
-    },
-    "main": "./dist/index.js"
-  },
+  "main": "./dist/index.js",
   "scripts": {
-    "build": "rm -rf dist && tsup ./src/index.ts --format cjs,esm --dts",
-    "dev": "yarn run build --watch",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "rm -rf cjs && tsc -p tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > cjs/package.json",
+    "build:esm": "rm -rf dist && tsc",
+    "format": "prettier --plugin-search-dir . --write .",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
-    "prepack": "yarn build",
+    "prepack": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
@@ -34,14 +37,14 @@
     "@typescript-eslint/parser": "^5.49.0",
     "eslint": "^8.33.0",
     "eslint-config-prettier": "^8.6.0",
-    "tsup": "^6.5.0",
+    "prettier": "^2.8.8",
     "typescript": "^4.9.5",
     "vitest": "^0.31.0"
   },
   "dependencies": {
-    "@noir/keyring": "github:noir-js/keyring",
-    "@noir/types": "github:noir-js/types",
-    "@noir/util": "github:noir-js/util",
+    "@pinot/keyring": "^0.1.0",
+    "@pinot/types": "^0.1.0",
+    "@pinot/util": "^0.1.2",
     "@polkadot/api": "^10.4.1",
     "@polkadot/api-derive": "^10.4.1",
     "rxjs": "^7.8.0"

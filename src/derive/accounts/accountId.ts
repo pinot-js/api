@@ -6,7 +6,7 @@ import type { DeriveApi } from '@polkadot/api-derive/types';
 
 import { of } from 'rxjs';
 
-import { decodeAddress, isU8a } from '@noir/util';
+import { decodeAddress, isU8a } from '@pinot/util';
 import { memo } from '@polkadot/api-derive/util';
 
 export function accountId (instanceId: string, api_: unknown): (...args: unknown[]) => Observable<any> {
