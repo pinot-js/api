@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@pinot/keyring": "^0.1.0",
+    "@pinot/signer": "^0.1.0",
     "@pinot/types": "^0.1.0",
     "@pinot/util": "^0.1.2",
     "@polkadot/api": "^10.4.1",
