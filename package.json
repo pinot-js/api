@@ -27,7 +27,7 @@
     "build:cjs": "rm -rf cjs && tsc -p tsconfig.cjs.json && echo '{\"type\": \"commonjs\"}' > cjs/package.json",
     "build:esm": "rm -rf dist && tsc",
     "format": "prettier --plugin-search-dir . --write .",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "prepack": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
