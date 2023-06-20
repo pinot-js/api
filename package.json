@@ -1,6 +1,6 @@
 {
   "name": "@pinot/api",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "license": "Apache-2.0",
   "type": "module",
   "description": "RPC wrappers for @pinot",
@@ -42,10 +42,10 @@
     "vitest": "^0.31.0"
   },
   "dependencies": {
-    "@pinot/keyring": "^0.1.0",
-    "@pinot/signer": "^0.1.0",
-    "@pinot/types": "^0.1.0",
-    "@pinot/util": "^0.1.2",
+    "@pinot/keyring": "^0.2.0",
+    "@pinot/signer": "^0.2.0",
+    "@pinot/types": "^0.2.0",
+    "@pinot/util": "^0.2.0",
     "@polkadot/api": "^10.4.1",
     "@polkadot/api-derive": "^10.4.1",
     "rxjs": "^7.8.0"
