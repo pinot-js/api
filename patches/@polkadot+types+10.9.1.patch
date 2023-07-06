@@ -1,0 +1,32 @@
+diff --git a/node_modules/@polkadot/types/cjs/metadata/PortableRegistry/PortableRegistry.js b/node_modules/@polkadot/types/cjs/metadata/PortableRegistry/PortableRegistry.js
+index c42325d..27a24ac 100644
+--- a/node_modules/@polkadot/types/cjs/metadata/PortableRegistry/PortableRegistry.js
++++ b/node_modules/@polkadot/types/cjs/metadata/PortableRegistry/PortableRegistry.js
+@@ -43,7 +43,10 @@ const PATHS_ALIAS = splitNamespace([
+     'ink::env::types::*',
+     'ink::primitives::types::*',
+     'ink_env::types::*',
+-    'ink_primitives::types::*'
++    'ink_primitives::types::*',
++    // noir
++    'np_runtime::accountname::AccountName',
++    'np_runtime::universaladdress::UniversalAddress'
+ ]);
+ const PATHS_SET = splitNamespace([
+     'pallet_identity::types::BitFlags'
+diff --git a/node_modules/@polkadot/types/metadata/PortableRegistry/PortableRegistry.js b/node_modules/@polkadot/types/metadata/PortableRegistry/PortableRegistry.js
+index 017b3de..20aa302 100644
+--- a/node_modules/@polkadot/types/metadata/PortableRegistry/PortableRegistry.js
++++ b/node_modules/@polkadot/types/metadata/PortableRegistry/PortableRegistry.js
+@@ -40,7 +40,10 @@ const PATHS_ALIAS = splitNamespace([
+     'ink::env::types::*',
+     'ink::primitives::types::*',
+     'ink_env::types::*',
+-    'ink_primitives::types::*'
++    'ink_primitives::types::*',
++    // noir
++    'np_runtime::accountname::AccountName',
++    'np_runtime::universaladdress::UniversalAddress'
+ ]);
+ const PATHS_SET = splitNamespace([
+     'pallet_identity::types::BitFlags'
