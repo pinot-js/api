@@ -12,6 +12,10 @@ export class ApiPromise extends ApiPromiseBase {
   public static override async create (options?: ApiOptions): Promise<ApiPromise> {
     const instance = await super.create({
       derives,
+      types: {
+        AccountName,
+        UniversalAddress
+      },
       ...options
     });
 
