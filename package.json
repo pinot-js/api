@@ -28,7 +28,7 @@
     "build:esm": "rm -rf dist && tsc",
     "format": "prettier --plugin-search-dir . --write .",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "prepack": "npm run build",
+    "prepare": "npm run build",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
