@@ -5,29 +5,20 @@ import type { ApiOptions } from '@polkadot/api/types';
 
 import { ApiPromise as ApiPromiseBase } from '@polkadot/api';
 
-import { AccountName, Binary, MultiAddress, UniversalAddress } from '@pinot/types';
-import * as derives from '../derive/index.js';
+import { Binary } from '@pinot/types';
 
 export class ApiPromise extends ApiPromiseBase {
   public static override async create (options?: ApiOptions): Promise<ApiPromise> {
     const instance = await super.create({
-      derives,
       ...options
     });
 
     /* eslint-disable sort-keys */
     instance.registerTypes({
-      AccountId: 'UniversalAddress',
-      AccountIndex: 'AccountName',
-      AccountName,
-      Address: 'MultiAddress',
       Binary,
-      ExtrinsicSignature: 'UniversalSignature',
-      LookupSource: 'MultiAddress',
-      MultiAddress,
-      P256Signature: '[u8; 64]',
-      UniversalAddress,
-      UniversalSignature: {
+      ExtrinsicSignature: 'AuthenticationProof',
+      P256Signature: '[u8; 65]',
+      AuthenticationProof: {
         _enum: {
           Ed25519: 'Ed25519Signature',
           Sr25519: 'Sr25519Signature',
