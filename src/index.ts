@@ -3,7 +3,6 @@
 
 export { ApiPromise } from './promise/Api.js';
 
-export { Keyring } from '@pinot/keyring';
 export { WebAuthnSigner } from '@pinot/signer';
 
 export * from '@polkadot/api';
