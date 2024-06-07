@@ -1,6 +1,6 @@
 {
   "name": "@pinot/api",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "license": "Apache-2.0",
   "type": "module",
   "description": "RPC wrappers for @pinot",
@@ -42,7 +42,7 @@
     "vitest": "^0.31.0"
   },
   "dependencies": {
-    "@pinot/signer": "^0.3.0",
+    "@pinot/signer": "^0.3.1",
     "@pinot/types": "^0.3.0",
     "@polkadot/api": "^10.4.1"
   }
